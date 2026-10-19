@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roomly — бронирование переговорных</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">roomly<span>.</span></a><div class="live"><i></i> Система работает</div></header>
+  <main class="layout">
+    <section class="hero"><div><p class="eyebrow">ОФИСНЫЕ ПРОСТРАНСТВА</p><h1>Встречи без<br /><em>накладок.</em></h1><p class="subtitle">Бронируйте переговорные за несколько секунд. Система сама проверит, свободна ли комната.</p></div><button class="primary" id="open-booking">+ Забронировать</button></section>
+    <section class="metrics" aria-label="Статистика"><article><span>Переговорных</span><strong id="rooms-total">—</strong></article><article><span>Встреч сегодня</span><strong id="bookings-today">—</strong></article><article><span>Занято часов</span><strong id="hours-today">—</strong></article></section>
+    <section class="content-grid">
+      <div class="panel rooms-panel"><div class="panel-title"><h2>Переговорные</h2><span>Выберите комнату</span></div><div id="rooms" class="room-grid"><p class="loading">Загружаем комнаты…</p></div></div>
+      <div class="panel schedule-panel"><div class="panel-title schedule-head"><div><h2>Ближайшие встречи</h2><span id="date-label"></span></div><input id="date-filter" type="date" aria-label="Дата встреч" /></div><div id="bookings" class="bookings"><p class="loading">Загружаем расписание…</p></div></div>
+    </section>
+  </main>
+  <dialog id="booking-dialog"><form id="booking-form"><div class="dialog-head"><div><p class="eyebrow">НОВАЯ ВСТРЕЧА</p><h2>Забронировать комнату</h2></div><button type="button" class="close" id="close-dialog">×</button></div><label>Переговорная<select id="room-id" required></select></label><div class="two-cols"><label>Дата<input id="booking-date" type="date" required /></label><label>Участников<input id="attendees" type="number" min="1" value="2" required /></label></div><label>Название встречи<input id="title" minlength="2" placeholder="Например, Синхронизация команды" required /></label><label>Организатор<input id="organizer" minlength="2" placeholder="Ваше имя" required /></label><div class="two-cols"><label>Начало<input id="start-time" type="time" value="10:00" required /></label><label>Окончание<input id="end-time" type="time" value="11:00" required /></label></div><p id="form-error" class="form-error" role="alert"></p><button class="primary submit" type="submit">Подтвердить бронь</button></form></dialog>
+  <div id="toast" class="toast" role="status"></div><script src="/app.js"></script>
+</body>
+</html>
